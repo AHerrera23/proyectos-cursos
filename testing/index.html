@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- icono en la url -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- descriptionque va a aparecer en google al buscar la pagina -->
+    <meta name="description" content="Portfolio de Abel Herrera sobre sus proyectos personales.">
+</head>
+<body>
+    <img id="img-perfil" title="Foto de Abel"src="" alt="Imagen del desarrolador">
+    <h1>Portfolio de Abel Herrera</h1>
+    <!-- a chequear -->
+    <h2>Desarrolador web y Diseñador multimedia.</h2>
+    <p>Portfolio de mis trabajos personales como <strong>desarrolador.</strong>.</p>
+    <h2>Experiencia</h2>
+    <p>No cuento con Experiencia laboral en el ambito IT, pero cuento con amplia Experiencia con multiples tecnologias gracias a mis estudios en Diseño Multimedia(UNLP).</p>
+    <!-- listamos de manera desordenada -->
+    <p><strong>Algunos de estos son:</strong></p>
+    <ul>
+        <li class="item-list">Conocimiento de UX/UI.</li>
+        <li class="item-list">Diseño de wireframes y mockups en figma, como tambien la realizacion de prototipos.</li>
+        <li class="item-list">Desarrolo de juegos 2D/3D/vr en el entorno unity.</li>
+        <li class="item-list">Programacion interactiva con P5js(entorno de javascript) y Processing(entorno de java).</li>
+        <li class="item-list">Desarrolo web.</li>
+    </ul>
+
+    <section>
+        <!-- como generar un formulario -->
+        <form method="post" action="/">
+            <fieldset>
+                <legend>informacion personal.</legend>
+                <div>
+                    <label>nombre
+                        <input type="text" name="name" placeholder="Abel D Herrera" required>
+                    </label>
+                </div>
+                <div>
+                    <label>email
+                        <input type="imail" name="email" placeholder="email" required>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>informacion adicional.</legend>
+                <div>
+                    <label>Contacto
+                        <input type="tel" name="tel" placeholder="Telefono">
+                    </label>
+                </div>
+                <div>
+                    <label>fecha de nacimiento
+                        <input type="datetime-local" name="date" placeholder="Fecha de nacimiento">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>por que quieres contactar?</legend>
+                <div>
+                    <label for="why">por que me contactaras?</label>
+                        <select name="why" id="why">
+                            <option value="1">Trabajo</option>
+                            <option value="2">Duda</option>
+                            <option value="3">Mas informacion</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="terms">aceaptas los terminos</label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                </div>
+                <div>
+                    <datalist id="lenguajes">
+                        <option value="javascript"></option>
+                        <option value="unity"></option>
+                        <option value="html"></option>
+                        <option value="css"></option>
+                    </datalist>
+                    <label>
+                        con que lenguaje quieres que te ayude?
+                        <input list="lenguajes" name="lenguajes">
+                    </label>
+                </div>
+            </fieldset>
+
+            <input type="submit" value="enviar Contacto">
+
+        </form>
+    </section>
+    <section>
+        <h2>preguntas frecuentes</h2>
+        <!-- podemos forzar a que el summari este abierto -->
+        <details open>
+            <summary>que estudios tenes?</summary>
+            <p>Me encuentro estudiando la carrera de linceciatura en diseño multimedia.</p>
+        </details>
+        <details>
+            <summary>en que año de la carrera te encotras?</summary>
+            <p>Me encuentro cursando el cuarto año de la carrera.</p>
+        </details>
+        <details>
+            <summary>que lenguaje te gusta mas?</summary>
+            <p>Mi lenguaje favorito es js.</p>
+        </details>
+    </section>
+</body>
+</html>
