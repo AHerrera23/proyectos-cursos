@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ejemplo del curso de js de jony -->
+    <div id="saludos">
+        <h1 id='saludo'></h1>
+    </div>
+    
+    <input type="text" id = 'entrada'> <br><br>
+    <button id='btn'>Saludar</button>
+    <p id="cantidades"></p>
+    <!-- Testeamos el js -->
+    <script>
+        let cantidadDesaludos = 0;
+        // busca un elemento por un determinado id y lo guarda en una variable
+        let titulo = document.getElementById('saludo');
+        // hacemos lo mismo con la entrada de texto
+        let entrada = document.getElementById('entrada');
+        // y lo mismo con el btn
+        let button = document.getElementById('btn');
+
+        let contenedor = document.getElementById('saludos')
+
+        let user = document.getElementById('cantidades')
+        // usamos innethtml
+        // titulo.innerHTML= 'titulo cambiando desde js'
+        
+        console.log(titulo.innerHTML);
+        // usamos alert
+        alert('welcome stranger');
+        // hacemos andar el button
+        // escucha el evento y lo incerta en el boton
+        // agrega dos paramtros, el evento y la funcion que devuelve el resultado del evento
+        // button.addEventListener('click', pincharon);
+        // funciones anonimas(funciones sin nombre que sirven para generar codigo mas corto y clean)
+        button.addEventListener('click', function(){
+            cantidadDesaludos++; 
+            let tipo = entrada.value;
+            var saludito = 'hola ' + tipo+', bienvenido'+' sos el usuario numero '+cantidadDesaludos 
+            // crea un elemento
+            var sal=document.createElement('h1')
+            // crea un nodo de texto
+            var txt = document.createTextNode(saludito)
+            // agrega un hijo al elemento que creamos(h1)
+            sal.appendChild(txt)
+            contenedor.appendChild(sal)
+            if(cantidadDesaludos<2){
+                user.innerHTML = 'saludamos a '+cantidadDesaludos+' persona'
+            }else{
+                user.innerHTML = 'saludamos a '+cantidadDesaludos+' personas'
+            }
+            
+            //titulo.innerHTML = 'hola '+ tipo;
+        });
+        // funcion normal
+        function pincharon(){
+            alert('saca la mano de ahi carajo');
+        }
+        
+
+    </script>
+</body>
+</html>
