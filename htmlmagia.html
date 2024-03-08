@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .verde{
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <!-- ejemplo del curso de js de jony -->
@@ -14,9 +19,11 @@
     <input type="text" id = 'entrada'> <br><br>
     <button id='btn'>Saludar</button>
     <p id="cantidades"></p>
+    <p id="asistieron"></p>
     <!-- Testeamos el js -->
     <script>
         let cantidadDesaludos = 0;
+        let cantidadDeAsistentes = 0;
         // busca un elemento por un determinado id y lo guarda en una variable
         let titulo = document.getElementById('saludo');
         // hacemos lo mismo con la entrada de texto
@@ -27,6 +34,8 @@
         let contenedor = document.getElementById('saludos')
 
         let user = document.getElementById('cantidades')
+
+        let asistieron=document.getElementById('asistieron')
         // usamos innethtml
         // titulo.innerHTML= 'titulo cambiando desde js'
         
@@ -41,7 +50,9 @@
         button.addEventListener('click', function(){
             cantidadDesaludos++; 
             let tipo = entrada.value;
-            var saludito = 'hola ' + tipo+', bienvenido'+' sos el usuario numero '+cantidadDesaludos 
+            // si esta vacio el bloque de texto la condicion no permite que la funcion se ejecute 
+            if(tipo != ''){
+                var saludito = 'Ivitado:  ' + tipo
             // crea un elemento
             var sal=document.createElement('h1')
             // crea un nodo de texto
@@ -49,14 +60,33 @@
             // agrega un hijo al elemento que creamos(h1)
             sal.appendChild(txt)
             contenedor.appendChild(sal)
-            if(cantidadDesaludos<2){
-                user.innerHTML = 'saludamos a '+cantidadDesaludos+' persona'
-            }else{
-                user.innerHTML = 'saludamos a '+cantidadDesaludos+' personas'
+                if(cantidadDesaludos<2){
+                    user.innerHTML = 'Tenemos '+cantidadDesaludos+' invitado'
+                }else{
+                    user.innerHTML = 'Tenemos '+cantidadDesaludos+' invitados'
+                }
+            //titulo.innerHTML = 'hola '+ tipo;
             }
             
-            //titulo.innerHTML = 'hola '+ tipo;
         });
+        // La idea es marcar un evento en el documento que cambie el h1
+        document.addEventListener('click', function(e){
+            // escucha los eventos en el dom e imprime una funcion anonima
+            // con el target bucamos una propiedad especifica del evento en cuestion que en este caso tendria que ser igual a h1console.log(e);
+            if(e.target.localName=='h1'){
+                cantidadDeAsistentes++
+                //alert('este es un h1');
+                // con el target guardamos el valor h1 y le añadimos la clase verde para intercalar con otro estilo de css
+                e.target.classList.add('verde')
+                e.target.innerHTML = e.target.innerHTML + ' asistio a la reunion'
+                if(cantidadDeAsistentes<2){
+                    asistieron.innerHTML = cantidadDeAsistentes + ' invitado asistio a esta reunion'
+                }else{
+                    asistieron.innerHTML = cantidadDeAsistentes + ' invitados asistieron a la reuinion'
+                }
+            }
+            
+        })
         // funcion normal
         function pincharon(){
             alert('saca la mano de ahi carajo');
